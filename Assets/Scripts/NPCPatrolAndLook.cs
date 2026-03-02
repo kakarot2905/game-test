@@ -36,10 +36,12 @@ public class NPCPatrolAndLook : MonoBehaviour
     [Header("Dialogue")]
     [TextArea(2, 6)]
     public string[] dialogueLines;
+    public AudioClip[] npcAudioClips; // New field for specific NPC voice
 
     // Per-merchant state
     private bool hasGivenSkillPoints = false;
     private bool dialogueInProgress = false;
+    private float dialogueCooldownTimer = 0f; // Cooldown timer
 
     private SpriteRenderer sr;
     private TextMeshPro promptTMP;
@@ -54,6 +56,10 @@ public class NPCPatrolAndLook : MonoBehaviour
 
     void Update()
     {
+        // Reduce timer
+        if (dialogueCooldownTimer > 0)
+            dialogueCooldownTimer -= Time.deltaTime;
+
         if (!playerInRange || player == null) return;
 
         FacePlayer();
@@ -62,18 +68,26 @@ public class NPCPatrolAndLook : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)
             && DialogueManager.Instance != null
             && !DialogueManager.Instance.IsOpen
-            && !dialogueInProgress)
+            && !dialogueInProgress
+            && dialogueCooldownTimer <= 0) // Check timer
         {
             StartMerchantDialogue();
         }
 
+        // Only show prompt if NOT in cooldown and NOT in dialogue
         if (DialogueManager.Instance != null &&
             !DialogueManager.Instance.IsOpen &&
             !dialogueInProgress &&
+            dialogueCooldownTimer <= 0 && 
             promptTransform != null &&
             !promptTransform.gameObject.activeSelf)
         {
             promptTransform.gameObject.SetActive(true);
+        }
+        else if (dialogueCooldownTimer > 0 && promptTransform != null && promptTransform.gameObject.activeSelf)
+        {
+             // Hide prompt during cooldown
+             promptTransform.gameObject.SetActive(false);
         }
     }
 
@@ -86,9 +100,10 @@ public class NPCPatrolAndLook : MonoBehaviour
             canGiveSkillPoints && !hasGivenSkillPoints;
 
         DialogueManager.Instance.StartDialogue(
-    avatarSprite,
-    new List<string>(dialogueLines)
-);
+            avatarSprite,
+            new List<string>(dialogueLines),
+            npcAudioClips
+        );
 
 
         if (promptTransform != null)
@@ -115,6 +130,7 @@ public class NPCPatrolAndLook : MonoBehaviour
             DialogueManager.Instance.giveSkillPointsOnEnd = false;
 
         dialogueInProgress = false;
+        dialogueCooldownTimer = 2f; // Set 2 second cooldown
 
         // Scene transition (only for flagged merchant)
         if (triggersSceneTransition && !string.IsNullOrEmpty(nextSceneName))

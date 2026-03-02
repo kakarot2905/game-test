@@ -135,11 +135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 16aeb056d02d9d647877a1a96e30ce0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.15
+      value: 19.29
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 16aeb056d02d9d647877a1a96e30ce0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.68
+      value: -1.7217945
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 16aeb056d02d9d647877a1a96e30ce0b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -319,7 +319,7 @@ MonoBehaviour:
   wakeRange: 6
   chaseRange: 8
   cliffCheck: {fileID: 1541849894434145369}
-  cliffDistance: 0.4
+  cliffDistance: 0.2
   xpDropCount: 3
   xpParticlePrefab: {fileID: 0}
   maxAttackLock: 1.2

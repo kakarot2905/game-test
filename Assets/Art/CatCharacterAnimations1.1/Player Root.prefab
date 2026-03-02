@@ -265,7 +265,6 @@ GameObject:
   - component: {fileID: 3018395052728721771}
   - component: {fileID: 3265916737500305620}
   - component: {fileID: 6653640165675160056}
-  - component: {fileID: 6658627853785829045}
   m_Layer: 6
   m_Name: Player Root
   m_TagString: Player
@@ -348,7 +347,7 @@ MonoBehaviour:
   moveSpeed: 6
   jumpForce: 14
   groundCheck: {fileID: 4709805065001644350}
-  groundRadius: 0.2
+  groundRadius: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -481,22 +480,6 @@ MonoBehaviour:
   attackDamageMultiplier: 10
   rangedDamageMultiplier: 5
 --- !u!114 &6653640165675160056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4234534347766474732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86cdb0c53b9959f46b13b87942936131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnInterval: 0.1
-  fadeDuration: 0.5
-  ghostColor: {r: 0.5, g: 0.5, b: 1, a: 0.5}
-  ghostMaterial: {fileID: 0}
---- !u!114 &6658627853785829045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

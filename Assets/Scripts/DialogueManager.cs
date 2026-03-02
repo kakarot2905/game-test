@@ -24,6 +24,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Typing")]
     public float typeSpeed = 0.03f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] gibberishClips;
+
     // Internals
     private Queue<string> lines = new Queue<string>();
     private bool isTyping = false;
@@ -42,6 +46,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
+            
+        // Auto-add AudioSource if missing
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
@@ -63,6 +73,9 @@ public class DialogueManager : MonoBehaviour
                 StopAllCoroutines();
                 dialogueText.text = currentLine;
                 isTyping = false;
+                
+                // Stop audio immediately if skipping
+                if (audioSource != null) audioSource.Stop();
             }
             else
             {
@@ -71,16 +84,26 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Audio
+    private AudioClip[] overrideClips; // If set, use these instead of default
+
     // =============================
     // START DIALOGUE
     // =============================
-    public void StartDialogue(Sprite avatar, List<string> dialogueLines)
+    public void StartDialogue(Sprite avatar, List<string> dialogueLines, AudioClip[] customAudio = null)
     {
         if (dialoguePanel == null || dialogueText == null)
             return;
 
+        // Pause Music
+        if (MusicManager.instance != null)
+            MusicManager.instance.PauseMusic();
+
         dialoguePanel.SetActive(true);
         IsOpen = true;
+
+        // Set custom audio if provided
+        this.overrideClips = customAudio;
 
         SetPlayerLock(true);
 
@@ -118,7 +141,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentLine = lines.Dequeue();
+        
+        // Ensure everything is stopped before starting new line
         StopAllCoroutines();
+        if (audioSource != null) audioSource.Stop();
+        
         StartCoroutine(TypeLine(currentLine));
     }
 
@@ -127,10 +154,50 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
         dialogueText.text = "";
 
+        // Start playing audio
+        if (audioSource != null)
+        {
+            // Case 0: specific character audio (Boss, etc.)
+            if (overrideClips != null && overrideClips.Length > 0)
+            {
+                AudioClip clip = overrideClips[UnityEngine.Random.Range(0, overrideClips.Length)];
+                audioSource.clip = clip;
+                audioSource.loop = true;
+                audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.0f); // Lower pitch for boss/custom
+                audioSource.time = UnityEngine.Random.Range(0f, clip.length);
+                audioSource.Play();
+            }
+            // Case 1: Use random clip from default array if available
+            else if (gibberishClips != null && gibberishClips.Length > 0)
+            {
+                AudioClip clip = gibberishClips[UnityEngine.Random.Range(0, gibberishClips.Length)];
+                audioSource.clip = clip;
+                audioSource.loop = true;
+                audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f); // Normal pitch
+                audioSource.time = UnityEngine.Random.Range(0f, clip.length); 
+                audioSource.Play();
+            }
+            // Case 2: Fallback to the clip assigned on the AudioSource component
+            else if (audioSource.clip != null)
+            {
+                audioSource.loop = true;
+                audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+                audioSource.time = UnityEngine.Random.Range(0f, audioSource.clip.length); 
+                audioSource.Play();
+            }
+        }
+
         foreach (char c in line)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(typeSpeed);
+        }
+
+        // Stop audio when typing finishes
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
         }
 
         isTyping = false;
@@ -146,12 +213,25 @@ public class DialogueManager : MonoBehaviour
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
 
+        // Stop audio if playing
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
+
+        // Resume Music
+        if (MusicManager.instance != null)
+            MusicManager.instance.ResumeMusic();
+
         SetPlayerLock(false);
 
         // Capture value before it gets reset in ResolveRewards
         bool gaveRewards = giveSkillPointsOnEnd;
         ResolveRewards();
         
+        overrideClips = null; // Reset custom audio
+
         OnDialogueEnded?.Invoke(gaveRewards);
     }
 
@@ -162,16 +242,29 @@ public class DialogueManager : MonoBehaviour
         lines.Clear();
         isTyping = false;
 
+        // Stop audio if playing
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
+
         IsOpen = false;
 
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
+
+        // Resume Music
+        if (MusicManager.instance != null)
+            MusicManager.instance.ResumeMusic();
 
         SetPlayerLock(false);
 
         // ✅ ESC NOW ALSO GIVES POINTS
         bool gaveRewards = giveSkillPointsOnEnd;
         ResolveRewards();
+
+        overrideClips = null; // Reset custom audio
 
         Debug.Log("[DialogueManager] Dialogue force-closed");
         OnDialogueEnded?.Invoke(gaveRewards);
@@ -205,4 +298,37 @@ public class DialogueManager : MonoBehaviour
         giveSkillPointsOnEnd = false;
     }
 
+    // =============================
+    // TUTORIAL MODE (NON-BLOCKING)
+    // =============================
+    public void ShowTutorialMessage(string message, Sprite avatar = null)
+    {
+        if (dialoguePanel == null || dialogueText == null) return;
+
+        // Ensure panel is open
+        dialoguePanel.SetActive(true);
+        
+        // DO NOT set IsOpen = true (avoids input hijacking)
+        // DO NOT pause music
+        // DO NOT lock player input
+        
+        // Show avatar if provided
+        if (avatarImage != null)
+        {
+            avatarImage.enabled = avatar != null;
+            if (avatar != null) avatarImage.sprite = avatar;
+        }
+
+        // Display text immediately (no typing effect for snappy tutorials, or repurpose typing if desired)
+        StopAllCoroutines();
+        dialogueText.text = message;
+    }
+
+    public void HideTutorialMessage()
+    {
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
+            
+        // No rewards, no event triggers, just hide UI
+    }
 }

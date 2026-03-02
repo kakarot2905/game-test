@@ -16,9 +16,17 @@ public class BossZone : MonoBehaviour
     public BossHealthBarUI healthBar;
     public Sprite bossAvatar;
     [TextArea] public System.Collections.Generic.List<string> introLines;
+    public AudioClip[] bossAudioClips; // New field for custom boss sound
+
     private bool fightStarted = false;
     private bool dialoguePlayed = false;
     private Transform playerTransform;
+
+    void Awake()
+    {
+        if (healthBar == null)
+            healthBar = FindObjectOfType<BossHealthBarUI>();
+    }
 
     void Start()
     {
@@ -83,8 +91,8 @@ public class BossZone : MonoBehaviour
         // Subscribe to end event
         DialogueManager.OnDialogueEnded += OnIntroDialogueEnded;
         
-        // Start Interaction
-        DialogueManager.Instance.StartDialogue(bossAvatar, introLines);
+        // Start Interaction with Custom Audio
+        DialogueManager.Instance.StartDialogue(bossAvatar, introLines, bossAudioClips);
     }
 
     void OnIntroDialogueEnded(bool gaveRewards)

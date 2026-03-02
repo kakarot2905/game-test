@@ -143,6 +143,6 @@ public class StoryIntroController : MonoBehaviour
 
     void LoadGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
     }
 }

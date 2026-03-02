@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
 
     private GameObject currentCat;
-    private bool isAttackMode = false;
+    public bool isAttackMode = false;
     private bool isSwitching = false;
 
 
@@ -159,6 +159,12 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+        // Create Zero Friction Material to prevent wall sticking physics
+        PhysicsMaterial2D noFriction = new PhysicsMaterial2D("NoFriction");
+        noFriction.friction = 0f;
+        col.sharedMaterial = noFriction;
+        rb.sharedMaterial = noFriction; // Apply to RB as well for safety
+
         // Start in Movement Mode
         movementCatPrefab.SetActive(true);
         attackCatPrefab.SetActive(false);
@@ -180,6 +186,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Check surrounding continuously for responsive input/movement
+        // Note: Physics properties (velocity etc.) are handled in loop, 
+        // but state checks here ensure frame-perfect transitions.
+        CheckGrounded();
+        CheckWall();
 
         if (inputLocked)
         {
@@ -202,8 +213,60 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckGrounded();
-        CheckWall();
+        // Legacy physics movement often runs here, but 
+        // we handle velocity directly in Update/Methods for platformer feel.
+        // Keeping empty or moving velocity application here is valid,
+        // but inconsistent with current Update-based loop.
+    }
+
+    void CheckWall()
+    {
+        // Dynamic check
+        if (col == null) return;
+
+        Bounds bounds = col.bounds;
+        float margin = 0.1f; // Standard overlapping margin
+        
+        Vector2 boxSize = new Vector2(margin, bounds.size.y * 0.7f);
+        
+        // Push the box slightly OUTSIDE the player bounds to ensure it hits the wall
+        // Center = Edge + HalfWidth
+        Vector2 leftCenter = new Vector2(bounds.min.x - (boxSize.x / 2), bounds.center.y);
+        Vector2 rightCenter = new Vector2(bounds.max.x + (boxSize.x / 2), bounds.center.y);
+
+        Collider2D hitLeft = Physics2D.OverlapBox(leftCenter, boxSize, 0f, groundLayer);
+        Collider2D hitRight = Physics2D.OverlapBox(rightCenter, boxSize, 0f, groundLayer);
+
+        isTouchingLeftWall = hitLeft != null;
+        isTouchingRightWall = hitRight != null;
+        isTouchingWall = isTouchingLeftWall || isTouchingRightWall;
+
+        // Visual Debug
+        Color colorL = isTouchingLeftWall ? Color.green : Color.red;
+        Color colorR = isTouchingRightWall ? Color.green : Color.red;
+
+        // Draw Left Box
+        DebugExtensions.DrawBox(leftCenter, boxSize, colorL);
+        // Draw Right Box
+        DebugExtensions.DrawBox(rightCenter, boxSize, colorR);
+    }
+
+    // Helper for drawing debug boxes in Scene/Game view
+    public static class DebugExtensions
+    {
+        public static void DrawBox(Vector2 center, Vector2 size, Color color)
+        {
+            Vector2 half = size / 2f;
+            Vector2 p1 = center + new Vector2(-half.x, -half.y);
+            Vector2 p2 = center + new Vector2(half.x, -half.y);
+            Vector2 p3 = center + new Vector2(half.x, half.y);
+            Vector2 p4 = center + new Vector2(-half.x, half.y);
+
+            Debug.DrawLine(p1, p2, color);
+            Debug.DrawLine(p2, p3, color);
+            Debug.DrawLine(p3, p4, color);
+            Debug.DrawLine(p4, p1, color);
+        }
     }
 
     void Move()
@@ -221,6 +284,7 @@ public class PlayerController : MonoBehaviour
 
             if (pushingIntoWall)
             {
+                Debug.Log($"Anti-Stick Triggered! Left: {isTouchingLeftWall}, Right: {isTouchingRightWall}, Input: {move}");
                 // Stop horizontal movement so we don't stick to the wall's friction
                 // We still let vertical velocity happen (regulated by WallSlide or Gravity)
                 rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
@@ -314,6 +378,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"[Player] Max HP increased! {oldMaxHP} → {maxHP} | HP: {oldCurrentHP} → {currentHP} (+{amount} HP healed)");
     }
 
+
+    public void ForceDie()
+    {
+        Debug.Log("[Player] FORCE DIE called (bypassing invincibility)");
+        Die();
+    }
 
     void Die()
     {
@@ -781,20 +851,35 @@ public class PlayerController : MonoBehaviour
 
     void CheckGrounded()
     {
-        // Use OverlapCircle for more reliable ground detection
-        Collider2D hit = Physics2D.OverlapCircle(
-            groundCheck.position,
-            groundRadius,
+        bool wasGrounded = isGrounded;
+        
+        // Use BoxCast independent of child transform for symmetry
+        Bounds bounds = col.bounds;
+        // Inset slightly to avoid catching walls on sides
+        Vector2 checkSize = new Vector2(bounds.size.x * 0.9f, 0.1f);
+        float checkDistance = 0.1f; // Check just below feet
+        
+        RaycastHit2D hit = Physics2D.BoxCast(
+            bounds.center, 
+            checkSize, 
+            0f, 
+            Vector2.down, 
+            (bounds.size.y / 2) + checkDistance, 
             groundLayer
         );
 
-        bool wasGrounded = isGrounded;
-        isGrounded = hit != null;
+        isGrounded = hit.collider != null;
         
-        // Reset jump count when landing
         if (isGrounded && !wasGrounded)
         {
             jumpCount = 0;
+            // Debug.Log("Landed!");
+        }
+        
+        // Debug Log if isGrounded state flips or is suspicious while wall touching
+        if (isTouchingWall && isGrounded)
+        {
+             Debug.LogWarning("IsGrounded TRUE while touching wall! Are we standing on a lip?");
         }
     }
 
@@ -813,28 +898,8 @@ public class PlayerController : MonoBehaviour
             ui.PlayDamageEffect(); // optional visual shake
     }
 
-    void CheckWall()
-    {
-        // Use OverlapBox for better reliability than single raycast
-        Collider2D hitLeft = Physics2D.OverlapBox(
-            wallCheckLeft.position,
-            wallCheckBoxSize,
-            0f,
-            groundLayer
-        );
+    // CheckWall moved to Update logic area for clarity
 
-        Collider2D hitRight = Physics2D.OverlapBox(
-            wallCheckRight.position,
-            wallCheckBoxSize,
-            0f,
-            groundLayer
-        );
-
-        // Track which wall we're touching
-        isTouchingLeftWall = hitLeft != null;
-        isTouchingRightWall = hitRight != null;
-        isTouchingWall = isTouchingLeftWall || isTouchingRightWall;
-    }
 
     void OnDrawGizmosSelected()
     {
@@ -844,16 +909,32 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(meleeAttackPoint.position, meleeAttackRange);
         }
 
-        Gizmos.color = Color.blue;
-        if (groundCheck != null)
-            Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+        if (col != null)
+        {
+            Gizmos.color = Color.blue;
+            Bounds bounds = col.bounds;
+            Vector2 checkSize = new Vector2(bounds.size.x * 0.9f, 0.1f);  
+            float checkDistance = 0.1f;
+            Vector2 center = (Vector2)bounds.center + (Vector2.down * ((bounds.size.y / 2) + (checkDistance / 2)));
+             
+            Gizmos.DrawWireCube(center, new Vector2(checkSize.x, checkDistance)); // Visualize the cast volume roughly
+        }
 
-        Gizmos.color = Color.yellow;
-        if (wallCheckLeft != null)
-            Gizmos.DrawWireCube(wallCheckLeft.position, wallCheckBoxSize);
-        
-        if (wallCheckRight != null)
-            Gizmos.DrawWireCube(wallCheckRight.position, wallCheckBoxSize);
+        if (col != null)
+        {
+            Gizmos.color = Color.yellow;
+            Bounds bounds = col.bounds;
+            float margin = 0.2f;
+            Vector2 boxSize = new Vector2(margin, bounds.size.y * 0.7f);
+
+            // Left
+            Vector2 leftCenter = new Vector2(bounds.min.x - (boxSize.x / 2), bounds.center.y);
+            Gizmos.DrawWireCube(leftCenter, boxSize);
+
+            // Right
+            Vector2 rightCenter = new Vector2(bounds.max.x + (boxSize.x / 2), bounds.center.y);
+            Gizmos.DrawWireCube(rightCenter, boxSize);
+        }
     }
 
 

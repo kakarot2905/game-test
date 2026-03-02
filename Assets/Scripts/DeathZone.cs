@@ -24,7 +24,9 @@ public class DeathZone : MonoBehaviour
             PlayerController pc = player.GetComponent<PlayerController>();
             if (pc != null)
             {
-                pc.TakeDamage(9999); // Instakill
+                // Fix: Use ForceDie to bypass invincibility (e.g. after taking damage)
+                pc.ForceDie();
+                // pc.TakeDamage(9999); // OLD WAY - blocked by isInvincible
             }
             else
             {

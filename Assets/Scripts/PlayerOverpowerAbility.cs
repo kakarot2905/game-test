@@ -87,6 +87,26 @@ public class PlayerOverpowerAbility : MonoBehaviour
              player.OnPlayerDeath += HandlePlayerDeath;
         }
 
+        if (globalVolume == null)
+        {
+            globalVolume = FindFirstObjectByType<Volume>();
+            if (globalVolume == null)
+            {
+                Debug.LogError("[Overpower] No Global Volume found in scene! Black & White effect will NOT work.");
+            }
+        }
+
+        // Try to FORCE ENABLE Post Processing on Main Camera
+        if (Camera.main != null)
+        {
+            var camData = Camera.main.GetUniversalAdditionalCameraData();
+            if (camData != null)
+            {
+                camData.renderPostProcessing = true;
+                Debug.Log("[Overpower] Enforced Post Processing on Main Camera");
+            }
+        }
+
         // Try to get ColorAdjustments from volume
         if (globalVolume != null && globalVolume.profile != null)
         {

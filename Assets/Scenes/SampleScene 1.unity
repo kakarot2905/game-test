@@ -1836,6 +1836,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 4
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -2671,6 +2675,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 103
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -2932,6 +2940,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 10
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -3086,6 +3098,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 5
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -3328,6 +3344,7 @@ MonoBehaviour:
   introLines:
   - Hello World
   - Lorem Ipsum
+  bossAudioClips: []
 --- !u!1 &454762174
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,6 +6933,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 9
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -7342,6 +7363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 12
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -7639,6 +7664,7 @@ MonoBehaviour:
   - "Take what you\u2019ve learned. Take the power you\u2019ve earned."
   - "Beyond this point, there\u2019s no turning back."
   - Go. The world is waiting.
+  npcAudioClips: []
 --- !u!1 &1140683054
 GameObject:
   m_ObjectHideFlags: 0
@@ -8627,6 +8653,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 2
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -8812,6 +8842,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 1
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -8947,6 +8981,7 @@ MonoBehaviour:
   player: {fileID: 1614316362}
   skillPoints: 100
   unlocked: 
+  startingSkillPoints: 0
 --- !u!114 &1276725514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10675,7 +10710,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillBar: {fileID: 1392512641}
   nameText: {fileID: 0}
-  panel: {fileID: 1500723361}
   fillSpeed: 5
   healthyColor: {r: 0.8, g: 0.2, b: 0.2, a: 1}
   criticalColor: {r: 0.5, g: 0, b: 0, a: 1}
@@ -19816,6 +19850,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 3
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -20056,6 +20094,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 106
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -20297,6 +20339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 0
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -21251,6 +21297,8 @@ MonoBehaviour:
   dialogueText: {fileID: 289963955}
   giveSkillPointsOnEnd: 1
   typeSpeed: 0.03
+  audioSource: {fileID: 0}
+  gibberishClips: []
 --- !u!1 &2117327138
 GameObject:
   m_ObjectHideFlags: 0
@@ -21305,6 +21353,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: 102
+  radialIcon: {fileID: 0}
+  unlockedGlowVFX: {fileID: 0}
+  scalePunchAmount: 1.15
+  scaleSpeed: 10
   unlockedColor: {r: 0, g: 1, b: 1, a: 1}
   availableColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   lockedColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

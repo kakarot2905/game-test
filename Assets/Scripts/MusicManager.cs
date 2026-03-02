@@ -40,7 +40,7 @@ public class MusicManager : MonoBehaviour
         if (Time.frameCount % 300 == 0) 
              Debug.Log($"[MusicManager] Heartbeat | Time: {source.time:F1}/{switchTime} | Playing: {source.isPlaying} | Overridden: {isOverridden}");
 
-        if (isOverridden) return;
+        if (isOverridden || isPaused) return;
 
         // Switch if song ends naturally OR if it exceeds the input time limit
         if (!source.isPlaying || source.time >= switchTime)
@@ -109,5 +109,28 @@ public class MusicManager : MonoBehaviour
             // If nothing stored, just play current playlist track
             PlayTrack();
         }
+    }
+
+    // ===================================
+    // Pause System (For Dialogue)
+    // ===================================
+    private bool isPaused = false;
+
+    public void PauseMusic()
+    {
+        if (isPaused) return;
+        
+        isPaused = true;
+        source.Pause();
+        Debug.Log("[MusicManager] Music Paused");
+    }
+
+    public void ResumeMusic()
+    {
+        if (!isPaused) return;
+
+        isPaused = false;
+        source.UnPause();
+        Debug.Log("[MusicManager] Music Resumed");
     }
 }

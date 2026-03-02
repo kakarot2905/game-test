@@ -38,6 +38,9 @@ public class SkillTreeManager : MonoBehaviour
     public int skillPoints = 0;
     public List<Skill> unlocked = new List<Skill>();
 
+    [Header("Debug / Testing")]
+    public int startingSkillPoints = 0; // Set this in Inspector to start with points!
+
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(this); return; }
@@ -48,6 +51,15 @@ public class SkillTreeManager : MonoBehaviour
 
         // We load in Awake to ensure data is ready before UI Start() runs
         skillPoints = PlayerProgress.skillPoints;
+        
+        // DEBUG: Give starting points if we have none (Test Mode)
+        if (skillPoints == 0 && startingSkillPoints > 0)
+        {
+            skillPoints = startingSkillPoints;
+            PlayerProgress.skillPoints = skillPoints;
+            Debug.Log($"[SkillTree] DEBUG: Applied default starting points: {startingSkillPoints}");
+        }
+        
         LoadSkillsFromPersistence();
         Debug.Log($"[SkillTree] Loaded Persistence in Awake | Points: {skillPoints}");
     }
@@ -289,7 +301,7 @@ public class SkillTreeManager : MonoBehaviour
 
 
 
-    void ShowMessage(string msg)
+    public void ShowMessage(string msg)
     {
         if (messageText != null)
         {
