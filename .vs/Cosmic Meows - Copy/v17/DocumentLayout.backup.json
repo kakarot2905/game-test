@@ -1,0 +1,186 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|c:\\users\\soham\\onedrive\\documents\\gamejam\\cosmic meows - copy\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|c:\\users\\soham\\onedrive\\documents\\gamejam\\cosmic meows - copy\\assets\\scripts\\playerformui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerformui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dialoguemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\npcpatrolandlook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\npcpatrolandlook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\skilltreemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skilltreemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|c:\\users\\soham\\onedrive\\documents\\gamejam\\cosmic meows - copy\\assets\\scripts\\playerprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerprogress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\skilltreecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skilltreecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\skillbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\assets\\scripts\\skilltreeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AF78AB-757A-AC77-6D72-C9FE62C92E2D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skilltreeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerFormUI.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerFormUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerFormUI.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerFormUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerFormUI.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T03:45:19.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerProgress.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerProgress.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerProgress.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerProgress.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerProgress.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T02:33:06.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NPCPatrolAndLook.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\NPCPatrolAndLook.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NPCPatrolAndLook.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\NPCPatrolAndLook.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NPCPatrolAndLook.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAswL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:35:29.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\DialogueManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\DialogueManager.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\DialogueManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\DialogueManager.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAywKwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:29:43.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SkillButton.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillButton.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillButton.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAIwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T00:57:59.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SkillTreeController.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillTreeController.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillTreeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T00:42:44.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SkillTreeManager.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillTreeManager.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillTreeManager.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAADwv3gAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T00:56:43.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAN4BAAAAAAAAAADwv/EBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T17:03:43.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraFollow.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraFollow.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAmwIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T06:16:07.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SkillTreeUI.cs",
+              "DocumentMoniker": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillTreeUI.cs",
+              "ToolTip": "C:\\Users\\soham\\OneDrive\\Documents\\GameJam\\Cosmic Meows - Copy\\Assets\\Scripts\\SkillTreeUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillTreeUI.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T20:38:58.089Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
