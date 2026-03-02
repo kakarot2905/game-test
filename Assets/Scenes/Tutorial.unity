@@ -2734,11 +2734,11 @@ Transform:
   m_GameObject: {fileID: 258334002}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.9, y: -0.099999905, z: -0.17587562}
+  m_LocalPosition: {x: -5.18625, y: -2.4399998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &258334004
 SpriteRenderer:
@@ -3950,11 +3950,11 @@ Transform:
   m_GameObject: {fileID: 436990965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6687493, y: -0.029999971, z: -0.17587562}
+  m_LocalPosition: {x: -0.59874916, y: -2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &436990967
 SpriteRenderer:
@@ -4412,7 +4412,7 @@ MonoBehaviour:
   player: {fileID: 23752192}
   skillPoints: 0
   unlocked: 
-  startingSkillPoints: 10
+  startingSkillPoints: 0
 --- !u!114 &585446022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4467,11 +4467,11 @@ Transform:
   m_GameObject: {fileID: 626248625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.64374876, y: 3.6, z: -0.17587562}
+  m_LocalPosition: {x: 6.713749, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &626248627
 SpriteRenderer:
@@ -5850,11 +5850,11 @@ Transform:
   m_GameObject: {fileID: 935570404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.912501, y: 3.47, z: -0.17587562}
+  m_LocalPosition: {x: -0.8425007, y: 1.1300001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &935570406
 SpriteRenderer:
@@ -7636,11 +7636,11 @@ Transform:
   m_GameObject: {fileID: 1233254028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14374876, y: -0.26999998, z: -0.17587562}
+  m_LocalPosition: {x: 11.08, y: -2.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1233254030
 SpriteRenderer:
@@ -7859,11 +7859,11 @@ Transform:
   m_GameObject: {fileID: 1253317578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14374876, y: 0.00999999, z: -0.17587562}
+  m_LocalPosition: {x: 6.213749, y: -2.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1253317580
 SpriteRenderer:
@@ -8998,14 +8998,7 @@ Transform:
   m_LocalPosition: {x: 6.07, y: -2.34, z: 0.17587562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 626248626}
-  - {fileID: 258334003}
-  - {fileID: 1253317579}
-  - {fileID: 1233254029}
-  - {fileID: 935570405}
-  - {fileID: 436990966}
-  - {fileID: 1397913505}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1391859957
@@ -9031,7 +9024,7 @@ MonoBehaviour:
     parallaxFactor: 0.6
     infiniteX: 1
     spriteWidth: 21.15625
-    startPos: {x: 15.969999, y: -2.4399998, z: 0}
+    startPos: {x: -5.18625, y: -2.4399998, z: 0}
   - transform: {fileID: 1253317579}
     parallaxFactor: 0.3
     infiniteX: 1
@@ -9061,8 +9054,8 @@ MonoBehaviour:
     parallaxFactor: 0.5
     infiniteX: 1
     spriteWidth: 21.15625
-    startPos: {x: 6.213749, y: -2.61, z: 0}
-  respawnAheadBuffer: 5
+    startPos: {x: 11.08, y: -2.61, z: 0}
+  respawnAheadBuffer: 100
 --- !u!1 &1397913504
 GameObject:
   m_ObjectHideFlags: 0
@@ -9089,11 +9082,11 @@ Transform:
   m_GameObject: {fileID: 1397913504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 2.34, z: -0.17587562}
+  m_LocalPosition: {x: 2.2700002, y: 0, z: 0}
   m_LocalScale: {x: 0.24000001, y: 0.24000001, z: 0.24000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1391859956}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1397913506
 SpriteRenderer:
@@ -10339,8 +10332,8 @@ MonoBehaviour:
   - instructionText: Press SPACE to Jump.
     requiredAction: 2
     requiredForm: 0
-    requiredDuration: 0
-    postActionDelay: 0
+    requiredDuration: 1
+    postActionDelay: 2
     tutorialProps:
     - {fileID: 181950412}
     - {fileID: 1854332914}
@@ -10357,28 +10350,28 @@ MonoBehaviour:
     requiredAction: 5
     requiredForm: 0
     requiredDuration: 0
-    postActionDelay: 0
+    postActionDelay: 1
     tutorialProps: []
     specificAvatar: {fileID: 0}
   - instructionText: 'As Black Cat: Right Click for Melee.'
     requiredAction: 4
     requiredForm: 0
     requiredDuration: 0
-    postActionDelay: 0
+    postActionDelay: 1
     tutorialProps: []
     specificAvatar: {fileID: 0}
   - instructionText: 'As Black Cat: Left Click for Range.'
     requiredAction: 3
     requiredForm: 0
     requiredDuration: 0
-    postActionDelay: 0
+    postActionDelay: 1
     tutorialProps: []
     specificAvatar: {fileID: 0}
   - instructionText: Press Shift to Dash (White Cat).
     requiredAction: 6
     requiredForm: 0
     requiredDuration: 0
-    postActionDelay: 0
+    postActionDelay: 1
     tutorialProps: []
     specificAvatar: {fileID: 0}
   - instructionText: Press T to Open Skills.
@@ -10392,7 +10385,7 @@ MonoBehaviour:
     requiredAction: 8
     requiredForm: 0
     requiredDuration: 0.5
-    postActionDelay: 0
+    postActionDelay: 5
     tutorialProps:
     - {fileID: 181950412}
     - {fileID: 1854332914}
@@ -10409,11 +10402,11 @@ MonoBehaviour:
     requiredAction: 10
     requiredForm: 0
     requiredDuration: 0
-    postActionDelay: 0
+    postActionDelay: 10
     tutorialProps: []
     specificAvatar: {fileID: 0}
   defaultAvatar: {fileID: -5292400612840516036, guid: acc9fc0c66228934d919aed55edcb923, type: 3}
-  stepDelay: 0.5
+  stepDelay: 1
   nextSceneName: SampleScene
 --- !u!1 &1590861975
 GameObject:
@@ -13791,3 +13784,10 @@ SceneRoots:
   - {fileID: 760908564}
   - {fileID: 1391859956}
   - {fileID: 1571854116}
+  - {fileID: 626248626}
+  - {fileID: 258334003}
+  - {fileID: 1253317579}
+  - {fileID: 1233254029}
+  - {fileID: 935570405}
+  - {fileID: 436990966}
+  - {fileID: 1397913505}
